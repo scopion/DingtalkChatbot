@@ -338,7 +338,18 @@ class CardItem(object):
             logging.error("CardItem是ActionCard的子控件时，title、url不能为空；是FeedCard的子控件时，title、url、pic_url不能为空！")
             raise ValueError("CardItem是ActionCard的子控件时，title、url不能为空；是FeedCard的子控件时，title、url、pic_url不能为空！")
 
-
+def getmysqlconn():
+    config = {
+        'host': '114.114.114.114',
+        'port': 3306,
+        'user': 'root',
+        'passwd': 'root',
+        'db': 'talscan',
+        'charset': 'utf8',
+        'cursorclass': MySQLdb.cursors.DictCursor
+    }
+    conn = mdb.connect(**config)
+    return conn
 
 def getstatusphone(conn):
     mobiles = []
